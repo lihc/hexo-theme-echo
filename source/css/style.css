@@ -10,6 +10,10 @@
     padding: 0;
 }
 
+html {
+    font-family: "Segoe UI"
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -17,6 +21,9 @@ body {
 }
 
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     height: var(--header-height);
     width: 100vw;
@@ -26,6 +33,7 @@ header {
         0px 1px 10px 0px rgba(0, 0, 0, .12),
         0px 2px 4px -1px rgba(0, 0, 0, .2);
     z-index: 1;
+    padding: 16px 10vw;
 }
 
 main {
@@ -37,4 +45,38 @@ main {
 footer {
     height: 8vh;
     background-color: skyblue;
+}
+
+nav a {
+    color: #170000;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 0px 10px;
+    padding-bottom: 2.5px;
+}
+
+nav a:hover {
+    color: #30ba78;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom-width: calc(max(.2em,2px));
+    border-bottom-color: #30ba78;
+    border-style: solid;
+}
+
+.home {
+    color: #30ba78;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-bottom-width: calc(max(.2em,2px));
+    border-bottom-color: #30ba78;
+    border-style: solid;
+}
+
+header div a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.75rem;
 }
