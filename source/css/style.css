@@ -1,0 +1,40 @@
+:root {
+    --header-height: 8vh;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    height: var(--header-height);
+    width: 100vw;
+    background-color: #fff;
+    box-shadow:
+        0px 4px 5px 0px rgba(0, 0, 0, .14),
+        0px 1px 10px 0px rgba(0, 0, 0, .12),
+        0px 2px 4px -1px rgba(0, 0, 0, .2);
+    z-index: 1;
+}
+
+main {
+    flex: auto;
+    /* margin-top: var(--header-height); */
+    padding-top: var(--header-height);
+}
+
+footer {
+    height: 8vh;
+    background-color: skyblue;
+}
