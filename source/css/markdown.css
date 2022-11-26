@@ -1,0 +1,103 @@
+.markdown {
+    padding: calc(max(3vw,32px));
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+    color: #333333;
+    margin: 1.5rem 0 1rem;
+}
+
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    color: #333333;
+    margin: 1rem 0;
+}
+
+
+.markdown p {
+    font-weight: 400;
+    margin: 0 0 1rem;
+}
+
+.markdown li {
+    margin-bottom: .5rem;
+    margin-left: 3rem;
+}
+
+.markdown blockquote {
+    padding: .4rem .4rem .4rem 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-left-width: calc(max(.5em,4px));
+    border-radius: calc(max(.5em,4px));
+    border-left-color: #428bca;
+    border-style: solid;
+    background: #fff;
+}
+.markdown blockquote p {
+    margin: 0.5rem 0;
+}
+
+.markdown figure {
+    background-color: #1e1e1e;
+    overflow: auto;
+    margin-bottom: 1rem;
+    border-radius: calc(max(.3em,5px));
+    /* Line-height: 16px; */
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.markdown figure::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.markdown figure::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.markdown figure::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-clolr);
+}
+
+
+.gutter {
+    color: #d4d4d4;
+    padding-right: 0.5rem;
+    border-right: 1px solid #eee;
+}
+
+.code {
+    color: #d4d4d4;
+    padding-left: 0.5rem;
+    font-weight: 400;
+}
+
+pre {
+    font-family: Consolas, 'Courier New', monospace;
+}
+
+code {
+    color: #8250df;
+    font-family: Consolas, 'Courier New', monospace
+}
+
+.markdown a {
+    color: #3371e3;
+    text-decoration: none;
+}
+
+.comment {
+    color: #6a9955;
+}
+
+.built_in {
+    color: #dcdcaa;
+}

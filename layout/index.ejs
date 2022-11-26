@@ -1,0 +1,55 @@
+<main>
+    <div class="welcome-page">
+        <!-- <div>快速开始</div>
+        <div>关于我</div> -->
+    </div>
+    <div class="main-content">
+        <ul class="main-content-list">
+            <%_ page.posts.forEach (post => { -%>
+            <li class="summary-item">
+                <section>
+                    <h3 class="list-title">
+                        <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+                    </h3>
+                    <p><%= truncate(strip_html(post.content),{length: 128}).replace(/\n|\r/g,"") %></p>
+                    <div class="summary-item-buttom">
+                        <div>
+                            <div class="summary-item-buttom-time">
+                                <span style="color: #1a73e8;" class="iconfont icon-time"></span>
+                                <time datetime="<%= post.date %>"><%= date(post.date) %></time>
+                            </div>
+                            <%_ if (post.categories.length > 0) { -%>
+                            <%_ category = post.categories.data -%>
+                            <div class="summary-item-buttom-categories">
+                                <span style="color: #1a73e8;" class="iconfont icon-fenlei"></span>
+                                <%_ category = post.categories.data -%>
+                                <%_ category = category[category.length - 1] -%>
+                                <a href="<%= url_for(category.path) %>"><%= category.name %></a>
+                            </div>
+                            <%_ } -%>
+                            <%_ if ( post.tags.length > 0) { -%>
+                            <ul class="summary-item-buttom-tags">
+                                <span style="color: #1a73e8;" class="iconfont icon-dingyue"></span>
+                                <%_ post.tags.forEach (tag => { -%>
+                                <li><a href="<%= url_for(tag.path) %>"><%= tag.name %></a></li>
+                                <%_ }) -%>
+                            </ul>
+                            <%_ } -%>
+                        </div>
+                        <div>
+                            <a href="<%= url_for(post.path) %>">Read More<span class="iconfont icon-jiantouyou"></span></a>
+                        </div>
+                    </div>
+                </section>
+            </li>
+            <%_ }) -%>
+            <div class="pagination">
+                <%_ page.prev ? url_prev = 'Prev' : url_prev = '' -%>
+                <a class="page-prev" href="<%= url_for(page.prev_link) %>"><%= url_prev %></a>
+                <%_ page.next ? url_next = 'Next' : url_next = '' -%>
+                <a class="page-next" href="<%= url_for(page.next_link) %>"><%= url_next %></a>
+            </div>
+        </ul>
+        <!-- <div class="sidebar"></div> -->
+    </div>
+</main>

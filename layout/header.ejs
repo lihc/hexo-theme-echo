@@ -1,0 +1,11 @@
+<header>
+    <div>
+        <a href="/"><%= config.title  %> </a>
+    </div>
+    <nav>
+        <%- search_form() %>
+        <%_ for (const i in theme.menus) { -%>
+        <a class="<%- is_current(theme.menus[i]) ? 'active' : '' %>" href="<%- url_for(theme.menus[i]) %>"><%= __(i) %></a>
+        <%_ } -%>
+    </nav>
+</header>

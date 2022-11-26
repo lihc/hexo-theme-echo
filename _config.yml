@@ -1,0 +1,13 @@
+
+
+
+
+menus:
+  Home: /
+  Archives: /archives
+  Categories: /categories
+  Tags: /tags
+  Links: /links
+  About: /about
+  # Move: /move
+  # ......

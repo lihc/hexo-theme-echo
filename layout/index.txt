@@ -1,0 +1,8 @@
+                <% console.log(page); %> 
+                <% console.log('总页数: ' + page.total); %>
+                <% console.log('目前页数: ' + page.current); %>
+                <% console.log('目前页数网址: ' + page.current_url); %>
+                <% console.log('上一页页数: ' + page.prev); %>
+                <% console.log('上一页网址: ' + page.prev_link); %>
+                <% console.log('下一页页数: ' + page.next); %>
+                <% console.log('下一页网址: ' + page.next_link); %>
