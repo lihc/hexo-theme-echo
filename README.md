@@ -13,9 +13,10 @@ git clone -b dev https://github.com/lihc/hexo-theme-echo.git themes/echo
 ```
 
 
-
 ## 备忘单
 
+- [x] 文章页头(后续优化)
+- [x] 文章页脚
 - [ ] 评论功能
 - [ ] 文章打赏功能
 - [ ] 代码块优化
@@ -28,4 +29,5 @@ git clone -b dev https://github.com/lihc/hexo-theme-echo.git themes/echo
 - [ ] 归档页面优化( 年度归档、月度归档 )
 - [ ] 友情链接
 - [ ] 主题更新日志
+- [ ] 文章侧边栏(Toc)
 - [ ] ......
