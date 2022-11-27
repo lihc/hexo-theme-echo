@@ -1,7 +1,28 @@
 <main>
     <div class="post">
+        <div class="post_header">
+            <%_ page.title == '' ? title = 'undefined' : title = page.title; -%> 
+            <h1><%= title %></h1>
+            <div>
+                <span>创建日期: <%= date(page.date) %></span>
+                <!-- <span>更新日期: 2022-01-01</span> -->
+                <span>作者: <%= config.author %></span>
+                <!-- <span>分类: Kubernetes</span> -->
+                <!-- <span>标签: 标签A; 标签B</span> -->
+            </div>
+        </div>
         <article class="markdown">
-            <%- page.content %>
+        <%- page.content %>
         </article>
+        <div class="post_info">
+            <ul>
+                <li>本文标题：<%= page.title %></li>
+                <li>本文作者：<%= config.author %></li>
+                <li>创建时间：<%= page.date %></li>
+                <li>文章链接：<%- full_url_for(page.path) %></li>
+                <li>版权声明：除非另有说明，否则本网站中的所有文章均采用 <b>BY-NC-SA</b> 许可。</li>
+            </ul>
+        </div>
+        <div>Comment</div>
     </div>
 </main>

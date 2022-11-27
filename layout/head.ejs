@@ -22,6 +22,7 @@
     } else if (is_tag()) {
         title = __('Tag') + ': ' + page.tag;
     } else if (is_post) {
+        title == '' ? title = 'undefined' : title = title;
         title = title + ' - ' + config.title;
     }
     -%>
