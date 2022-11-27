@@ -4,8 +4,8 @@
     </div>
     <nav>
         <%- search_form() %>
-        <%_ for (const i in theme.menus) { -%>
-        <a class="<%- is_current(theme.menus[i]) ? 'active' : '' %>" href="<%- url_for(theme.menus[i]) %>"><%= __(i) %></a>
+        <%_ for (const menu in theme.menus) { -%>
+        <a class="<%- is_current(theme.menus[menu]) ? 'active' : '' %>" href="<%- url_for(theme.menus[menu]) %>"><%= __(menu) %></a>
         <%_ } -%>
     </nav>
 </header>

@@ -1,5 +1,5 @@
 
-
+favicon: /images/favicon.svg
 
 
 menus:
@@ -9,5 +9,17 @@ menus:
   Tags: /tags
   Links: /links
   About: /about
-  # Move: /move
+  # More: /more
   # ......
+
+social_contact:
+  enable: false
+  links:
+    Email:
+    Github: 
+    WeChat:
+    QQ:
+    WeiBo:
+    ZhiHu:
+    Twitter:
+    Facebook:

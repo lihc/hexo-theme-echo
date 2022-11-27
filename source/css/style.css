@@ -77,6 +77,9 @@ nav a {
     font-size: 1.1rem;
     margin: 0px 10px;
     padding-bottom: 2.5px;
+    /* border-bottom-width: calc(max(.2em,2px)); */
+    /* border-style: solid; */
+    /* border-color: #fff; */
 }
 
 nav a:hover {
@@ -84,9 +87,9 @@ nav a:hover {
     border-top: 0px;
     border-right: 0px;
     border-left: 0px;
-    border-bottom-width: calc(max(.2em,2px));
-    border-bottom-color: #30ba78;
-    border-style: solid;
+    /* border-bottom-width: calc(max(.2em,2px)); */
+    /* border-bottom-color: #30ba78; */
+    /* border-style: solid; */
     transition: color 0.2s;
 }
 
@@ -95,9 +98,9 @@ nav a:hover {
     border-top: 0px;
     border-right: 0px;
     border-left: 0px;
-    border-bottom-width: calc(max(.2em,2px));
-    border-bottom-color: #30ba78;
-    border-style: solid;
+    /* border-bottom-width: calc(max(.2em,2px)); */
+    /* border-bottom-color: #30ba78; */
+    /* border-style: solid; */
 }
 
 header div a {

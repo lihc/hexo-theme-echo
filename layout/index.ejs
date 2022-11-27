@@ -9,7 +9,8 @@
             <li class="summary-item">
                 <section>
                     <h3 class="list-title">
-                        <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+                        <%_ post.title == '' ? post_title = 'undefined' : post_title = post.title -%>
+                        <a href="<%= url_for(post.path) %>"><%= post_title %></a>
                     </h3>
                     <p><%= truncate(strip_html(post.content),{length: 128}).replace(/\n|\r/g,"") %></p>
                     <div class="summary-item-buttom">
@@ -37,7 +38,7 @@
                             <%_ } -%>
                         </div>
                         <div>
-                            <a href="<%= url_for(post.path) %>">Read More<span class="iconfont icon-jiantouyou"></span></a>
+                            <a href="<%= url_for(post.path) %>"><%= __('Read_More') %> <span class="iconfont icon-jiantouyou"></span></a>
                         </div>
                     </div>
                 </section>
@@ -45,9 +46,9 @@
             <%_ }) -%>
             <div class="pagination">
                 <%_ page.prev ? url_prev = 'Prev' : url_prev = '' -%>
-                <a class="page-prev" href="<%= url_for(page.prev_link) %>"><%= url_prev %></a>
+                <a class="page-prev" href="<%= url_for(page.prev_link) %>"><%= __(url_prev) %></a>
                 <%_ page.next ? url_next = 'Next' : url_next = '' -%>
-                <a class="page-next" href="<%= url_for(page.next_link) %>"><%= url_next %></a>
+                <a class="page-next" href="<%= url_for(page.next_link) %>"><%= __(url_next) %></a>
             </div>
         </ul>
         <!-- <div class="sidebar"></div> -->

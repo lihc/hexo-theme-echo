@@ -3,8 +3,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hexo"></head>
-    <title>Hexo</title>
-    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
+    <%_ 
+    var title = page.title;
+
+    function titleCase(str) {
+        newStr = str.slice(0,1).toUpperCase() + str.slice(1).toLowerCase();
+        return newStr;
+    };
+
+    if (is_home()) {
+        title = config.title;
+    } else if (is_archive()) {
+        title = __('Archives') + ' - ' + config.title;
+    } else if (is_page()) {
+        title = __(titleCase(title)) + ' - ' + config.title;
+    } else if (is_category()) {
+        title = __('Category') + ': ' + page.category;
+    } else if (is_tag()) {
+        title = __('Tag') + ': ' + page.tag;
+    } else if (is_post) {
+        title = title + ' - ' + config.title;
+    }
+    -%>
+    <title><%= title %></title>
+    <link rel="shortcut icon" href="<%= theme.favicon %>" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/iconfont/iconfont.css">
     <link rel="stylesheet" href="/css/markdown.css">
