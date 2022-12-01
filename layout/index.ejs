@@ -12,17 +12,18 @@
                         <%_ post.title == '' ? post_title = 'undefined' : post_title = post.title -%>
                         <a href="<%= url_for(post.path) %>"><%= post_title %></a>
                     </h3>
-                    <p><%= truncate(strip_html(post.content),{length: 128}).replace(/\n|\r/g,"") %></p>
+                    <%_ post.excerpt ? excerpt = post.excerpt : excerpt = post.content -%>
+                    <p><%= truncate(strip_html(excerpt),{length: 128}).replace(/\n|\r/g,"") %></p>
                     <div class="summary-item-buttom">
                         <div>
                             <div class="summary-item-buttom-time">
-                                <span style="color: #1a73e8;" class="iconfont icon-time"></span>
+                                <span class="iconfont icon-time"></span>
                                 <time datetime="<%= post.date %>"><%= date(post.date) %></time>
                             </div>
                             <%_ if (post.categories.length > 0) { -%>
                             <%_ category = post.categories.data -%>
                             <div class="summary-item-buttom-categories">
-                                <span style="color: #1a73e8;" class="iconfont icon-fenlei"></span>
+                                <span class="iconfont icon-fenlei"></span>
                                 <%_ category = post.categories.data -%>
                                 <%_ category = category[category.length - 1] -%>
                                 <a href="<%= url_for(category.path) %>"><%= category.name %></a>
@@ -30,7 +31,7 @@
                             <%_ } -%>
                             <%_ if ( post.tags.length > 0) { -%>
                             <ul class="summary-item-buttom-tags">
-                                <span style="color: #1a73e8;" class="iconfont icon-dingyue"></span>
+                                <span class="iconfont icon-dingyue"></span>
                                 <%_ post.tags.forEach (tag => { -%>
                                 <li><a href="<%= url_for(tag.path) %>"><%= tag.name %></a></li>
                                 <%_ }) -%>
@@ -38,7 +39,7 @@
                             <%_ } -%>
                         </div>
                         <div>
-                            <a href="<%= url_for(post.path) %>"><%= __('Read_More') %> <span class="iconfont icon-jiantouyou"></span></a>
+                            <a href="<%= url_for(post.path) %>"><%= __('Read_More') %><span class="iconfont icon-jiantouyou"></span></a>
                         </div>
                     </div>
                 </section>

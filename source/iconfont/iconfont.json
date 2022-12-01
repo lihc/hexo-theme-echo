@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "31109616",
+      "name": "communication",
+      "font_class": "communication",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "33046801",
       "name": "箭头 右-copy",
       "font_class": "jiantouzuo",

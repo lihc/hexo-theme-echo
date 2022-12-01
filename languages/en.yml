@@ -12,5 +12,14 @@ Read_More: Read Move
 Prev: Prev
 Next: Next
 Theme: Theme
-Comment: Comment
+Comments: Comments
+Copyright:
+  Title: Post Title
+  Author: Author
+  Create_Time: Create Time
+  Link: Post Link
+  License_Title: Copyright Notice
+  License_Content: "All articles on this site are licensed under %s unless otherwise stated."
+Create_Date: Create Date
+                    
 

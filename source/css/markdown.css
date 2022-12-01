@@ -1,104 +1,305 @@
-.markdown {
-    padding: calc(max(3vw,32px));
-}
-
-.markdown h1,
-.markdown h2,
-.markdown h3 {
-    color: #333333;
-    margin: 1.5rem 0 1rem;
-}
-
-.markdown h4,
-.markdown h5,
-.markdown h6 {
-    color: #333333;
-    margin: 1rem 0;
-}
-
-
-.markdown p {
-    font-weight: 400;
-    margin: 0 0 1rem;
-}
-
-.markdown li {
-    margin-bottom: .5rem;
-    margin-left: 3rem;
-}
-
-.markdown blockquote {
-    padding: .4rem .4rem .4rem 1rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    border-right: 1px solid #eee;
-    border-left-width: calc(max(.5em,4px));
-    border-radius: calc(max(.5em,4px));
-    border-left-color: #428bca;
-    border-style: solid;
-    background: #fff;
-}
-.markdown blockquote p {
-    margin: 0.5rem 0;
-}
-
-.markdown figure {
-    background-color: #1e1e1e;
-    overflow: auto;
-    margin-bottom: 1rem;
-    border-radius: calc(max(.3em,5px));
-    /* Line-height: 16px; */
-    font-size: 1rem;
+/* 布局 */
+.core {
+    flex: auto;
+    margin: 0;
     padding: 1rem;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content {
+    flex: auto;
+    padding: calc(max(3vw,1.5rem)) calc(max(4.5vw,1.5rem));
+    width: 100%;
+    max-width: 960px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 1px 2px 1px rgba(50,50,50,0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.markdown figure::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+.markdown {
+    width: 100%;
+    line-height: 1.5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-.markdown figure::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+/* 标题 <h1>,<h2>,<h3>,<h4>,<h5>,<h6> */
+.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6 {
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+.markdown h1 {
+    padding-bottom: 0.3em;
+    font-size: 2rem;
+    border-bottom: 1px solid hsl(210deg 18% 87%);
+}
+.markdown h2 {
+    padding-bottom: .3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid hsl(210deg 18% 87%);
+}
+.markdown h3 {
+    font-size: 1.25em;
+}
+.markdown h4 {
+    font-size: 1em;
+}
+.markdown h5 {
+    font-size: .875em;
+}
+.markdown h6 {
+    color: #57606a;
+    font-size: .85em;
 }
 
-.markdown figure::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-clolr);
+/* 段落 <p> */
+.markdown p {
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
-
-.gutter {
-    color: #d4d4d4;
-    padding-right: 0.5rem;
-    border-right: 1px solid #eee;
-}
-
-.code {
-    color: #d4d4d4;
-    padding-left: 0.5rem;
-    font-weight: 400;
-}
-
-pre {
-    font-family: Consolas, 'Courier New', monospace;
-}
-
-code {
-    color: #8250df;
-    font-family: Consolas, 'Courier New', monospace
-}
-
+/* 链接 <a> */
 .markdown a {
     color: #3371e3;
     text-decoration: none;
 }
-
-.comment {
-    color: #6a9955;
+.markdown a:hover {
+    text-decoration: underline;
 }
 
-.built_in {
+/* 分割线 <hr> */
+.markdown hr {
+    margin: 1.5rem 0;
+    padding: 0;
+    height: .25em;
+    border: 0;
+    border-style: none;
+    overflow: hidden;
+    background: #d0d7de;
+}
+
+/* 有序/无序/任务列表 <ol>,<ul>,<li>,<input> */
+.markdown ol,
+.markdown ul {
+    padding-left: 2em;
+    margin-bottom: 1rem;
+}
+.markdown li+li {
+    margin-top: 1rem;
+}
+li:has( > input[type="checkbox"]) {
+    list-style: none;
+    margin-left: -1.25rem;
+}
+
+/* 引用 <blockquote> */
+.markdown blockquote {
+    background: #fff;
+    margin-bottom: 1rem;
+    padding: 1rem 0.5rem 0.5rem 1rem;
+    border-style: solid;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-left-color: #428bca;
+    border-left-width: calc(max(.5em,4px));
+    border-radius: calc(max(.5em,4px));
+    overflow: auto;
+}
+.markdown blockquote p {
+    word-wrap: break-word;
+}
+.markdown blockquote * {
+    margin-bottom: 0.5rem;
+}
+
+/* 表格框 <table> */
+.markdown table {
+    display: block;
+    margin-bottom: 1rem;
+    width: 100%;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.markdown table th,
+.markdown table tr,
+.markdown table td {
+    background-color: #fff;
+    padding: 6px 13px;
+    border: 1px solid #d0d7de;
+    text-align: left;
+}
+.markdown table th,
+.markdown table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+.markdown table th,
+.markdown table td {
+    white-space: nowrap;
+}
+
+/* 代码框 <figure> */
+:root {
+    --color-Alto: #d4d4d4; /* 中音 */
+    --color-Anakiwa: #9cdcfe; /* 穴木轮 */
+    --color-Asparagus: #6a9955;  /* 芦笋 */
+    --color-Coriander: #b5cea8; /* 香菜 */
+    --color-Gray: #858585; /* 灰色的 */
+    --color-Havelock-Blue: #569cd6; /* 哈夫洛克蓝 */
+    --color-My-Pink: #ce9178; /* 我的粉红 */
+    --color-Sapling: #dcdcaa; /* 树苗 */
+    --color-Silver: #c6c6c6; /* 银白 */
+    --color-Viola: #c586c0; /* 中提琴 */
+    --color-Medium-Purple: #8250df; /* 中紫色 */
+    --color-Cod-Gray: #1e1e1e; /* 鳕鱼灰 */
+    --color-Straw: #d7ba7d; /* 稻草 */
+}
+
+.markdown figure[class~="highlight"] > table {
+    margin: 0;
+    padding: 0;
+}
+
+.markdown figure[class~="highlight"] > table th,
+.markdown figure[class~="highlight"] > table tr,
+.markdown figure[class~="highlight"] > table td {
+    padding: 6px 13px;
+    padding: 0.75rem;
+    padding-right: 0;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* .markdown figure[class~="highlight"] table::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.markdown figure[class~="highlight"] table::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+.markdown figure[class~="highlight"] table::-webkit-scrollbar-thumb {
+    background-color: #858585;
+} */
+
+.markdown code {
+    color: #8250df;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.markdown > pre {
+    padding: 1rem !important;
+}
+
+.markdown > pre,
+.markdown figure[class~="highlight"] {
+    background: #1e1e1e;
+    border-radius: 0.25rem;
+    padding: .25rem;
+    margin-bottom: 1rem;
+    overflow: auto;
+}
+
+.markdown > pre code,
+.markdown figure[class~="highlight"] code,
+.markdown figure[class~="highlight"] pre {
+    color: #d4d4d4;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    tab-size: 4;
+    hyphens: none;
+}
+
+.markdown figure[class~="highlight"] .gutter pre {
+    color: #858585;
+}
+
+.highlight .comment {color: #6a9955;} /* 注释 */
+.highlight .built_in {color: #dcdcaa;} /* 内置 */
+.highlight .string {color: #ce9178;} /* 字符 */
+.highlight.number {color: #b5cea8;} /* 数字 */
+
+/* 元数据 */
+.highlight.bash .meta,
+.highlight.html .meta,
+.highlight.sh .meta {
+    color: #6a9955;
+}
+.highlight.c .meta {
+    color: #c586c0;
+}
+
+/* 关键字 */
+.highlight.c .keyword,
+.highlight.bash .keyword,
+.highlight.sh .keyword,
+.highlight.python .keyword {
+    color: #c586c0;
+}
+.highlight.sql .keyword,
+.highlight.js .keyword {
+    color: #569cd6;
+}
+
+/* 属性 */
+.highlight.html .attr,
+.highlight.yaml .attr,
+.highlight.yml .attr {
+    color: #569cd6;
+}
+
+/* 函数标题 */
+.highlight.bash .title,
+.highlight.sh .title,
+.highlight.c .title.function_,
+.highlight.js .title.function_ {
     color: #dcdcaa;
+}
+
+.highlight.c .type,
+.highlight.html .name {
+    color: #569cd6;
+}
+
+.highlight.bash .variable,
+.highlight.sh .variable {
+    color: #9cdcfe;
+}
+
+.highlight.python .code pre {
+    color: #9cdcfe !important;
+}
+
+.highlight.css .attribute,
+.highlight.css .selector-attr,
+.highlight.js .variable.language_,
+.highlight.js .property {
+    color: #9cdcfe;
+}
+
+.highlight.css .selector-class,
+.highlight.css .selector-tag {
+    color: #d7ba7d;
+}
+
+.highlight.c .params {
+    color: #ffd700;
+}
+
+.highlight.js .title.class_ {
+    color: #4ec9b0;
 }
