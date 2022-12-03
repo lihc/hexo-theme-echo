@@ -1,45 +1,40 @@
-<main>
-    <div class="welcome-page">
-        <!-- <div>快速开始</div>
-        <div>关于我</div> -->
-    </div>
-    <div class="main-content">
-        <ul class="main-content-list">
+<main class="home">
+    <%_ if (is_current('/')) { -%>
+    <div class="welcome-page"></div>
+    <%_ } -%>
+    <div class="home-content">
+        <ul class="posts-list">
             <%_ page.posts.forEach (post => { -%>
-            <li class="summary-item">
-                <section>
-                    <h3 class="list-title">
+            <li>
+                <section class="posts-item">
+                    <h2 class="title">
                         <%_ post.title == '' ? post_title = 'undefined' : post_title = post.title -%>
                         <a href="<%= url_for(post.path) %>"><%= post_title %></a>
-                    </h3>
+                    </h2>
                     <%_ post.excerpt ? excerpt = post.excerpt : excerpt = post.content -%>
-                    <p><%= truncate(strip_html(excerpt),{length: 128}).replace(/\n|\r/g,"") %></p>
-                    <div class="summary-item-buttom">
-                        <div>
-                            <div class="summary-item-buttom-time">
-                                <span class="iconfont icon-time"></span>
-                                <time datetime="<%= post.date %>"><%= date(post.date) %></time>
-                            </div>
-                            <%_ if (post.categories.length > 0) { -%>
-                            <%_ category = post.categories.data -%>
-                            <div class="summary-item-buttom-categories">
-                                <span class="iconfont icon-fenlei"></span>
-                                <%_ category = post.categories.data -%>
-                                <%_ category = category[category.length - 1] -%>
-                                <a href="<%= url_for(category.path) %>"><%= category.name %></a>
-                            </div>
-                            <%_ } -%>
-                            <%_ if ( post.tags.length > 0) { -%>
-                            <ul class="summary-item-buttom-tags">
-                                <span class="iconfont icon-dingyue"></span>
-                                <%_ post.tags.forEach (tag => { -%>
-                                <li><a href="<%= url_for(tag.path) %>"><%= tag.name %></a></li>
-                                <%_ }) -%>
-                            </ul>
-                            <%_ } -%>
+                    <p class="excerpt"><%= truncate(strip_html(excerpt),{length: 128}).replace(/\n|\r/g,"") %></p>
+                    <div class="post-info">
+                        <div class="iconfont icon-time">
+                            <time datetime="<%= post.date %>"><%= date(post.date) %></time>
                         </div>
-                        <div>
-                            <a href="<%= url_for(post.path) %>"><%= __('Read_More') %><span class="iconfont icon-jiantouyou"></span></a>
+                        <%_ if (post.categories.length > 0) { -%>
+                        <%_ category = post.categories.data -%>
+                        <%_ category = category[category.length - 1] -%>
+                        <div class="iconfont icon-fenlei">
+                            <a href="<%= url_for(category.path) %>"><%= category.name %></a>
+                        </div>
+                        <%_ } -%>
+                        <%_ if ( post.tags.length > 0) { -%>
+                        <div class="iconfont icon-dingyue">
+                            <%_ post.tags.forEach (tag => { -%>
+                            <span><a href="<%= url_for(tag.path) %>"><%= tag.name %></a></span>
+                            <%_ }) -%>
+                        </div>
+                        <%_ } -%>
+                        <div class="more">
+                            <a href="<%= url_for(post.path) %>">
+                                <span class="iconfont icon-jiantouyou"><%= __('Read_More') %></span>
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -52,6 +47,6 @@
                 <a class="page-next" href="<%= url_for(page.next_link) %>"><%= __(url_next) %></a>
             </div>
         </ul>
-        <!-- <div class="sidebar"></div> -->
+        <!-- <div class="home-sidebar"></div> -->
     </div>
 </main>

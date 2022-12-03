@@ -1,27 +1,8 @@
-/* 布局 */
-.core {
-    flex: auto;
-    margin: 0;
-    padding: 1rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.content {
-    flex: auto;
-    padding: calc(max(3vw,1.5rem)) calc(max(4.5vw,1.5rem));
-    width: 100%;
-    max-width: 960px;
-    border-radius: 0.5rem;
-    box-shadow: 0px 1px 2px 1px rgba(50,50,50,0.25);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .markdown {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
     line-height: 1.5;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
@@ -29,14 +10,14 @@
 /* 标题 <h1>,<h2>,<h3>,<h4>,<h5>,<h6> */
 .markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6 {
     color: #333;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    margin-top: 24px;
+    margin-bottom: 16px;
     font-weight: 600;
     line-height: 1.25;
 }
 .markdown h1 {
     padding-bottom: 0.3em;
-    font-size: 2rem;
+    font-size: 2em;
     border-bottom: 1px solid hsl(210deg 18% 87%);
 }
 .markdown h2 {
@@ -61,7 +42,7 @@
 /* 段落 <p> */
 .markdown p {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 /* 链接 <a> */
@@ -75,7 +56,7 @@
 
 /* 分割线 <hr> */
 .markdown hr {
-    margin: 1.5rem 0;
+    margin: 1.5em 0;
     padding: 0;
     height: .25em;
     border: 0;
@@ -88,21 +69,21 @@
 .markdown ol,
 .markdown ul {
     padding-left: 2em;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 .markdown li+li {
-    margin-top: 1rem;
+    margin-top: 1em;
 }
 li:has( > input[type="checkbox"]) {
     list-style: none;
-    margin-left: -1.25rem;
+    margin-left: -1.25em;
 }
 
 /* 引用 <blockquote> */
 .markdown blockquote {
     background: #fff;
-    margin-bottom: 1rem;
-    padding: 1rem 0.5rem 0.5rem 1rem;
+    margin-bottom: 1em;
+    padding: 1em 0.5em 0.5em 1em;
     border-style: solid;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -116,13 +97,13 @@ li:has( > input[type="checkbox"]) {
     word-wrap: break-word;
 }
 .markdown blockquote * {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
 }
 
 /* 表格框 <table> */
 .markdown table {
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
     width: 100%;
     width: max-content;
     max-width: 100%;
@@ -163,22 +144,19 @@ li:has( > input[type="checkbox"]) {
     --color-Cod-Gray: #1e1e1e; /* 鳕鱼灰 */
     --color-Straw: #d7ba7d; /* 稻草 */
 }
-
 .markdown figure[class~="highlight"] > table {
     margin: 0;
     padding: 0;
 }
-
 .markdown figure[class~="highlight"] > table th,
 .markdown figure[class~="highlight"] > table tr,
 .markdown figure[class~="highlight"] > table td {
     padding: 6px 13px;
-    padding: 0.75rem;
+    padding: 0.75em;
     padding-right: 0;
     border: 0;
     background-color: rgba(0, 0, 0, 0);
 }
-
 /* .markdown figure[class~="highlight"] table::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -194,20 +172,17 @@ li:has( > input[type="checkbox"]) {
     color: #8250df;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
-
 .markdown > pre {
-    padding: 1rem !important;
+    padding: 1em !important;
 }
-
 .markdown > pre,
 .markdown figure[class~="highlight"] {
     background: #1e1e1e;
-    border-radius: 0.25rem;
-    padding: .25rem;
-    margin-bottom: 1rem;
+    border-radius: 0.25em;
+    padding: .25em;
+    margin-bottom: 1em;
     overflow: auto;
 }
-
 .markdown > pre code,
 .markdown figure[class~="highlight"] code,
 .markdown figure[class~="highlight"] pre {
@@ -223,7 +198,6 @@ li:has( > input[type="checkbox"]) {
     tab-size: 4;
     hyphens: none;
 }
-
 .markdown figure[class~="highlight"] .gutter pre {
     color: #858585;
 }
@@ -303,3 +277,30 @@ li:has( > input[type="checkbox"]) {
 .highlight.js .title.class_ {
     color: #4ec9b0;
 }
+
+/* 标题链接锚点 <h1><a></h1> */
+.markdown :is(h1,h2,h3,h4,h5,h6) {
+    position: relative;
+}
+.markdown :is(h1,h2,h3,h4,h5,h6) a {
+    color: rgba(0, 0, 0, 0);
+    font-family: "iconfont" !important;
+    font-size: 1rem;
+    position: absolute;
+    margin-left: -1.25em;
+    transition: color 0s linear;
+}
+.markdown :is(h1,h2,h3,h4,h5,h6) a:before {
+    content: "\e629";
+}
+.markdown :is(h1,h2,h3,h4,h5,h6):hover a,
+.markdown :is(h1,h2,h3,h4,h5,h6) a:hover {
+    color: #515151;
+}
+.markdown h1 a {margin-top: .75em;}
+.markdown h2 a {margin-top: .50em;}
+.markdown h3 a {margin-top: .25em;}
+.markdown h4 a {margin-top: .125em;}
+.markdown h5 a {margin-top: 0;}
+.markdown h6 a {margin-top: 0;}
+

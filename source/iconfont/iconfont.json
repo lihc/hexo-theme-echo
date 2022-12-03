@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6978113",
+      "name": "链接",
+      "font_class": "lianjie",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "31109616",
       "name": "communication",
       "font_class": "communication",

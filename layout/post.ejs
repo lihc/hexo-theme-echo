@@ -1,7 +1,7 @@
-<main>
+<main class="post">
     <div class="core">
         <div class="content">
-            <div class="post_head">
+            <div class="post_head markdown">
                 <%_ page.title == '' ? title = 'undefined' : title = page.title; -%> 
                 <h1><%= title %></h1>
             </div>
@@ -29,6 +29,10 @@
                     </li>
                 </ul>
             </div>
+            <!-- <div class="markdown">
+                <span class="iconfont icon-communication">评论</span>
+            </div> -->
         </div>
+        <!-- <div class="post-sidebar">post-sidebar</div> -->
     </div>
 </main>

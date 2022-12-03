@@ -1,7 +1,6 @@
 
 favicon: /images/favicon.svg
 
-
 menus:
   Home: /
   Archives: /archives
@@ -34,4 +33,3 @@ comments:
     version: 1.6.7  # Twikoo version, default use v1.6.7
     envId: https://twikoo-lihc.vercel.app/  # 腾讯云环境填 envId；Vercel 环境填地址 (https://xxx.vercel.app)
     region:         # 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-

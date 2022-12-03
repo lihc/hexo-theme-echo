@@ -1,3 +1,299 @@
-main[class="page"] .markdown:first-child > h2 {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --header-height: 8vh;
+    --scrollbar-color: #bdbfbf;
+}
+
+@keyframes main-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-3em);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+html::-webkit-scrollbar {
+    width: .5em;
+    height: .5em;
+}
+html::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+html::-webkit-scrollbar-thumb {
+    background-color: #bfbfbf;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    width: 100vw;
+    background-color: #fff;
+    box-shadow:
+        0px 4px 5px 0px rgba(0, 0, 0, .14),
+        0px 1px 10px 0px rgba(0, 0, 0, .12),
+        0px 2px 4px -1px rgba(0, 0, 0, .2);
+    z-index: 1;
+    padding: 1em 10vw;
+}
+
+footer {
+    height: 8vh;
+    background-color: #f5f5f5;
+    display: flex;
+}
+main {
+    padding-top: var(--header-height);
+    animation-name: main-appear;
+    animation-duration: 1s;
+}
+main .core {
+    width: 100%;
+    padding: 1rem;
+
+}
+main, main .core {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .core .content {
+    flex: auto;
+    padding: calc(max(3vw,1.5rem)) calc(max(4.5vw,1.5rem));
+    width: 100%;
+    max-width: 960px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 1px 2px 1px rgba(50,50,50,0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Home */
+main[class~="home"] .home-content {
+    flex: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+main[class~="home"] .posts-list {
+    flex: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main[class~="home"] .posts-list li {
+    width: 100%;
+    max-width: 960px;
+    list-style: none;
+}
+/* main[class~="home"] .posts-list li+li {
+    margin-top: 0rem;
+} */
+main[class~="home"] .posts-list section {
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 12rem;
+    margin: 1rem;
+    padding: calc(max(4.5vh,1.25rem)) calc(max(2.5vw,1.25rem));
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px 1px rgba(50,50,50,0.25);
+}
+main[class~="home"] section .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+main[class~="home"] section .excerpt {
+    margin: 1.5rem 0;
+    word-break: break-all;
+}
+main[class~="home"] section .post-info {
+    display: flex;
+    align-items: flex-end;
+}
+main[class~="home"] section .post-info div+div {
+    margin-left: .5rem;
+}
+main[class~="home"] section .post-info .more {
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+main[class~="home"] section a {
+    color: #555;
+    text-decoration: none;
+}
+main[class~="home"] section a:hover {
+    color: #0e83cd;
+    text-decoration: none;
+}
+
+main[class~="home"] .welcome-page {
+    min-width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-image: url("/images/bg.svg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: initial;
+}
+
+main[class~="home"] .pagination {
+    width: 100%;
+    max-width: 960px;
+    /* margin: 1rem; */
+    padding: 1rem 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+main[class~="home"] .pagination a {
+    text-decoration: none;
+    color: #0e83cd;
+    font-weight: 700;
+}
+
+
+/* Post */
+main[class~="post"] .post_head h1 {
+    color: #333;
     margin-top: 0;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid hsl(210deg 18% 87%);
+}
+main[class~="post"] .copyright_info {
+    background: #fff;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding: 1em 0.5em 0em 1em;
+    border-style: solid;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-left-color: #eb3941;
+    border-left-width: calc(max(.5em,4px));
+    border-radius: calc(max(.5em,4px));
+    overflow: auto;
+}
+main[class~="post"] .copyright_info ul {
+    margin-bottom: 1em;
+}
+main[class~="post"] .copyright_info li {
+    list-style: none;
+    white-space: nowrap;
+}
+main[class~="post"] .copyright_info li+li {
+    margin-top: .5em;
+}
+
+main[class~="post"] .copyright_info a {
+    color: #3371e3;
+    text-decoration: none;
+}
+main[class~="post"] .copyright_info a:hover {
+    text-decoration: underline;
+}
+
+
+/* 其他实现 */
+
+/* 如果 Markdown 文档中第一个元素为标题, 那么就设置它的上边距为 0  */
+main article[class~="markdown"] > :is(h1,h2,h3,h4,h5,h6):first-child {
+    margin-top: 0;
+}
+/* 兼容性写法，待优化 */
+main article[class~="markdown"] > h1:first-child,
+main article[class~="markdown"] > h2:first-child,
+main article[class~="markdown"] > h3:first-child,
+main article[class~="markdown"] > h4:first-child,
+main article[class~="markdown"] > h5:first-child,
+main article[class~="markdown"] > h6:first-child {
+    margin-top: 0;
+}
+
+/* Home: 将阅读更多按钮图标的显示位置，设置为后面 */
+.post-info .icon-jiantouyou::before {
+    content: normal;
+}
+.post-info .icon-jiantouyou::after {
+    content: "\e62d";
+}
+
+.icon-communication {
+    font-size: 1.5em !important;
+}
+
+/* 页头 <header> */
+nav {
+    display: flex;
+    align-items: center;
+}
+nav a {
+    color: #170000;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 0px 10px;
+    padding-bottom: 2.5px;
+    /* border-bottom-width: calc(max(.2em,2px)); */
+    /* border-style: solid; */
+    /* border-color: #fff; */
+}
+nav a:hover {
+    color: #30ba78;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    /* border-bottom-width: calc(max(.2em,2px)); */
+    /* border-bottom-color: #30ba78; */
+    /* border-style: solid; */
+    transition: color 0.2s;
+}
+header .active {
+    color: #30ba78;
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    /* border-bottom-width: calc(max(.2em,2px)); */
+    /* border-bottom-color: #30ba78; */
+    /* border-style: solid; */
+}
+header div a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.75em;
+}
+.search-form {
+    display: inline-block;
 }

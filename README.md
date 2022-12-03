@@ -26,6 +26,7 @@ git clone -b dev https://github.com/lihc/hexo-theme-echo.git themes/echo
 - [ ] Home：文章页头 (后续优化)
 - [ ] Home：文章页脚 (后续优化)
 - [ ] Home：欢迎页面
+- [ ] Home：文章置顶
 - [ ] 文章打赏功能
 - [ ] 本地搜索功能
 - [ ] 文章侧边栏 (Toc)
