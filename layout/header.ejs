@@ -1,11 +1,36 @@
 <header>
-    <div>
-        <a href="/"><%= config.title  %> </a>
+    <div class="root-title">
+        <img src="<%= theme.favicon %>">
+        <a href="/"><%= config.title %></a>
     </div>
-    <nav>
-        <%- search_form() %>
-        <%_ for (const menu in theme.menus) { -%>
-        <a class="<%- is_current(theme.menus[menu]) ? 'active' : '' %>" href="<%- url_for(theme.menus[menu]) %>"><%= __(menu) %></a>
-        <%_ } -%>
-    </nav>
+    <div class="nav-menu">
+        <%# search_form() %>
+        <svg type="button" onclick="addshow()" class="icon icon-caidan dropbtn" aria-hidden="true">
+            <use xlink:href="#icon-caidan"></use>
+        </svg>
+        <nav id="myDropdown" class="item">
+            <%_ for (const menu in theme.menus) { -%>
+            <a href="<%- url_for(theme.menus[menu]) %>"><%= __(menu) %></a>
+            <%_ } -%>
+        </nav>
+    </div>
 </header>
+<script>
+    // 点击按钮，下拉菜单在 显示/隐藏 之间切换
+    function addshow() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    // 点击下拉菜单意外区域隐藏
+    // window.onclick = function(event) {
+    //     if (!event.target.matches('.dropbtn')) {
+    //         var dropdowns = document.getElementsByClassName("item");
+    //         var i;
+    //         for (i = 0; i < dropdowns.length; i++) {
+    //             var openDropdown = dropdowns[i];
+    //             if (openDropdown.classList.contains('show')) {
+    //                 openDropdown.classList.remove('show');
+    //             }
+    //         }
+    //     }
+    // }
+  </script>

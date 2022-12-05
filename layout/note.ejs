@@ -1,0 +1,32 @@
+<% console.log(page); %>
+<%_ if (theme.comments.enable && page.comments) { -%>
+<div class="comments">
+    <h2 class="iconfont icon-communication"><%= __('Comments') %></h2>
+    <%_ if (theme.comments.use) { -%>
+    <%- include('comments/' + theme.comments.use) %>
+    <%_ } -%>
+</div>
+<%_ } -%>
+
+<header>
+    <div>
+        <a href="/"><%= config.title  %> </a>
+    </div>
+    <nav>
+        <%- search_form() %>
+        <%_ for (const menu in theme.menus) { -%>
+        <a class="<%- is_current(theme.menus[menu]) ? 'active' : '' %>" href="<%- url_for(theme.menus[menu]) %>"><%= __(menu) %></a>
+        <%_ } -%>
+    </nav>
+</header>
+
+<header>
+    <div>
+        <a href="/"><%= config.title  %> </a>
+    </div>
+    <nav>
+        <svg class="icon icon-caidan" aria-hidden="true">
+            <use xlink:href="#icon-caidan"></use>
+        </svg>
+    </nav>
+</header>
